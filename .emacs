@@ -7,28 +7,61 @@
 (load-file "~/install/cedet-1.1/common/cedet.el")
 (require 'cedet)
 
-
+(load-file "~/install/web-mode/web-mode.el")
+(require 'web-mode)
 ;;;; CC-mode配置  http://cc-mode.sourceforge.net/
+
 (require 'cc-mode)
-(c-set-offset 'inline-open 0)
-(c-set-offset 'friend '-)
-(c-set-offset 'substatement-open 0)
+(c-add-style "my-style"
+	     '("parent style"
+	       (variable .value)
+	       (c-offsets-alist .
+	       ((offset-name-1 . offset)
+		(offset-name-2 . offset)))
+	       ))
+
+(setq c-default-style "my-style")
+
+;; (require 'cc-mode)
+;; (c-set-offset 'inline-open 0)
+;; (c-set-offset 'friend '-)
+;; (c-set-offset 'substatement-open 0)
+
+(defun my-c-mode-common-hook()
+  (setq tab-width 8 indent-tabs-mode nil)
+ ;;预处理设置
+  (setq c-macro-shrink-window-flag t)
+  (setq c-macro-preprocessor "cpp")
+  (setq c-macro-cppflags " ")
+  (setq c-macro-prompt-flag t)
+  (setq hs-minor-mode t)
+  (setq abbrev-mode t))
+
+
+    ;; C language setting
+(add-hook 'c-mode-common-hook '(lambda () (c-toggle-auto-state 1))) ;auto newline
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
+;;;;我的C++语言编辑策略
+(defun my-c++-mode-hook()
+  (setq tab-width 4 indent-tabs-mode nil)
+  (c-set-style "stroustrup"))
 
 
 ;; Enable EDE (Project Management) features
 ;; (global-ede-mode 1)
- 
-;(semantic-load-enable-minimum-features)
+
+ ;(semantic-load-enable-minimum-features)
 (semantic-load-enable-code-helpers)
 ;;(semantic-load-enable-excessive-code-helpers)
 (semantic-load-enable-semantic-debugging-helpers)
- 
 ;; Enable SRecode (Template management) minor-mode.
 ;;(global-srecode-minor-mode 1)
 
 ;;;;yasnippet配置
 (add-to-list 'load-path  "~/install/yasnippet-master")
 (require 'yasnippet)
+
 
 (yas/load-directory "~/install/yasnippet-master/snippets")
 (yas/global-mode 1)
@@ -52,6 +85,7 @@
 (setq ac-quick-help-delay 0)
 ;输入错误时仍能匹配,需手动触发
 (setq ac-fuzzy-enable t)   
+
 ;添加需要提示的内容
 (setq-default ac-sources '(ac-source-words-in-same-mode-buffers))
 (setq-default ac-sources '(ac-source-yasnippet
@@ -84,8 +118,6 @@ ac-source-filename))
 (setq ac-auto-start 0.5)
 (setq ac-dwim t)
 (define-key ac-mode-map (kbd "M-/") 'auto-complete)
-
-
 
 (global-set-key [f4] 'semantic-ia-fast-jump)
 (global-set-key [S-f4]
@@ -156,7 +188,7 @@ ac-source-filename))
                               "/usr/include/c++/4.7/backward"
 			      "/usr/lib/gcc/i686-linux-gnu/4.7/include"
 			      "/usr/lib/gcc/i686-linux-gnu/4.7/include-fixed"
-			      "/usr/include/i386-linux-gnu"		        
+			      "/usr/include/i386-linux-gnu"		     				   "~/work/LinuxPrograming/include/"   
                               "/usr/local/include"))
 (require 'semantic-c nil 'noerror)
 (let ((include-dirs cedet-user-include-dirs))
@@ -178,7 +210,6 @@ ac-source-filename))
 (setq ecb-tip-of-the-day nil)  ;;;;防止弹友好提示框
 
 ;;;(global-set-key [(f7)] 'speedbar) 显示与当前工作目录相关的窗口
-
 
 
 (global-set-key [f1] 'hippie-expand)
@@ -231,7 +262,9 @@ ac-source-filename))
 (global-set-key (kbd "M-3") 'split-window-horizontally)	;;垂直分割缓冲区 Alt+3  (init-key C-x 3)
 (global-set-key (kbd "M-0") 'other-window)	;;切换到其它缓冲区 Alt+0 (init-key C-x o )
 	  
- (global-set-key [f2] (quote shell)) ;
+ ;; (global-set-key [f2] (quote shell)) ;
+ (global-set-key [f2] 'shell)
+
 ;;F10
  ;;显示/隐藏菜单栏 ;; M-x menu-bar-open
 (global-set-key  [(f10)]'menu-bar-mode) 
@@ -345,10 +378,8 @@ ac-source-filename))
 
 ;;;;;;;; 使用空格缩进 ;;;;;;;;
 ;; indent-tabs-mode  t 使用 TAB 作格式化字符  nil 使用空格作格式化字符
-(setq indent-tabs-mode nil)
-(setq tab-always-indent nil)
-(setq tab-width 4)
-	        
+
+
 ;;========================================
 ;; 字体设置
 ;;========================================
@@ -592,9 +623,11 @@ A numeric argument serves as a repeat count."
 
 ;;;;开启stardict词典
      
-     (load-file "~/install/wangyinelisp/stardict.el")	
-     (require 'stardict)
-     (global-set-key (kbd "C-c d") 'view-stardict-in-buffer)
+     (load-file "~/install/wangyinelisp/sdcv-mode.el")	
+     ;; (require 'stardict)
+     ;; (global-set-key (kbd "C-c d") 'view-stardict-in-buffer) 
+     (require 'sdcv-mode)
+     (global-set-key (kbd "C-c d") 'sdcv-search)
 
 
 ;;;;;Scheme半结构化编程模式
@@ -604,7 +637,6 @@ A numeric argument serves as a repeat count."
   "Minor mode for pseudo-structurally editing Lisp code."
   t)
 
-;;;;;;
 ;;;;;;;;;;;;
 ;; Scheme 
 ;;;;;;;;;;;;
@@ -660,8 +692,6 @@ A numeric argument serves as a repeat count."
     (define-key scheme-mode-map (kbd "<f5>") 'scheme-send-last-sexp-split-window)
     (define-key scheme-mode-map (kbd "<f6>") 'scheme-send-definition-split-window)))
 
-
-	
 ;; 注释/反注释一行或是一个区域的代码
 ;; 如果没有选择一个区域(region), 则注释掉/反注释当前的行
 (defun qiang-comment-dwim-line (&optional arg)
@@ -702,7 +732,7 @@ position."
   "Switches between current cursorposition and position
 that was stored with ska-point-to-register."
   (interactive)
-  (setq zmacs-region-stays t)
+  (setq zmacs-region-stays t)uy hntgbvds
   (let ((tmp (point-marker)))
         (jump-to-register 8)
         (set-register 8 tmp)))
@@ -716,12 +746,84 @@ that was stored with ska-point-to-register."
  '(display-time-mode t)
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
+ '(global-semantic-decoration-mode nil nil (semantic-decorate-mode))
+ '(global-semantic-highlight-edits-mode t nil (semantic-util-modes))
+ '(global-semantic-highlight-func-mode nil nil (semantic-util-modes))
+ '(global-semantic-idle-scheduler-mode t nil (semantic-idle))
+ '(global-semantic-mru-bookmark-mode t nil (semantic-util-modes))
+ '(global-semantic-show-parser-state-mode t nil (semantic-util-modes))
+ '(global-semantic-show-unmatched-syntax-mode t nil (semantic-util-modes))
+ '(global-semantic-stickyfunc-mode nil nil (semantic-util-modes))
+ '(global-senator-minor-mode t nil (senator))
  '(send-mail-function nil)
  '(show-paren-mode t)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(which-function-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(put 'set-goal-column 'disabled nil)
+
+;; git
+;;git-emacs
+(add-to-list 'load-path "~/install/git-emacs-master")
+(require 'git-emacs)
+
+
+
+;; (add-hook 'org-mode-hook (lambda ()
+                             ;; (cnblogs-minor-mode)))			
+
+;; ssh方法  
+;; c-x c-f /ssh:root@192.168.10.131:
+;; (load-file "~/install/tramp-2.2.9.el")
+(require 'tramp)
+(cond
+ ((eq system-type 'gnu/linux)
+  (setq tramp-default-method "ssh")))
+(setq tramp-default-user "root"
+	 tramp-default-host "192.168.10.62")
+(setq password-cache-expiry 360)
+
+
+(setq window-system-default-frame-alist
+      '(
+        ;; if frame created on x display
+        (x
+	 (menu-bar-lines . 1)
+	 (tool-bar-lines . nil)
+	 ;; mouse
+	 (mouse-wheel-mode . 1)
+	 (mouse-wheel-follow-mouse . t)
+	 (mouse-avoidance-mode . 'exile)
+	 ;; face
+	 (font . "文泉驿等宽微米黑 12")
+	 )
+        ;; if on term
+        (nil
+	 (menu-bar-lines . 0) (tool-bar-lines . 0)
+	 ;; (background-color . "black")
+	 ;; (foreground-color . "white")
+	 )
+	))
+
+;;; Smex
+;; (load-file "~/install/smex.el")p
+;; (require 'smex) ; Not needed if you use package.el
+;; (global-set-key (kbd "M-x") 'smex)
+;; (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+;; xcscope
+(load-file "~/install/xcscope.el")
+(require 'xcscope)
+
+
+
+
+
+
+
+
