@@ -1,4 +1,5 @@
-
+;; 自动补全
+   (global-set-key [f1] ' hippie-expand)
 ;; C-t 设置标记 
 (global-set-key (kbd "C-t") 'set-mark-command)	
 

@@ -18,7 +18,7 @@
  ;;设置打开文件的默认路径
 (setq default-directory  "~/")   
 
-;;让emas可以直接打开和显示图片
+;;让emacs可以直接打开和显示图片
 (auto-image-file-mode)		 
 
 
@@ -79,7 +79,6 @@
 
 ;; 当使用 M-x COMMAND 后，过 1 秒钟显示该 COMMAND 绑定的键。
 (setq suggest-key-bindings 1) 
-
 
 
 ;;========================================
@@ -150,7 +149,6 @@
 ;;========================================
 
 ;;;emacs  auto-complete
-
 
 
 
@@ -368,3 +366,9 @@ Replaces default behaviour of comment-dwim, when it inserts comment at the end o
       'make-local-hook
        'ignore))
        
+
+
+
+
+
+
