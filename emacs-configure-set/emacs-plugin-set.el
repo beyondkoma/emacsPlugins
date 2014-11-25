@@ -9,13 +9,13 @@
 	  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/ ") t)
   )
 
-;;;yasnippet配置
-;(add-to-list 'load-path  (concat  Relative-Path  "yasnippet-master")) ;
-;(require 'yasnippet)
+;; yasnippet配置
+(add-to-list 'load-path  (concat  Relative-Path  "yasnippet-master")) ;
+(require 'yasnippet)
 
-;(yas/load-directory   (concat  Relative-Path "yasnippet-master/snippets"))
-;(yas/global-mode 1)
-;(yas/minor-mode-on) ; 以minor mode打开，这样才能配合主mode使用g
+(yas/load-directory   (concat  Relative-Path "yasnippet-master/snippets"))
+(yas/global-mode 1)
+(yas/minor-mode-on) ; 以minor mode打开，这样才能配合主mode使用
 
 ;设置auto-complete
 (add-to-list 'load-path   (concat  Relative-Path "auto-complete-1.3.1"))
