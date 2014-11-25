@@ -32,7 +32,7 @@
 (setq default-fill-column 90)
 
 ;;缺省模式 org-mode
-(setq default-major-mode 'org-mode)
+;; (setq default-major-mode 'org-mode)
 
 ;;设置删除纪录
 (setq kill-ring-max 200)
@@ -94,7 +94,7 @@
 (setq display-time-interval 10)
 
 ;;显示列号
-(setq column-number-mode t)
+;; (setq column-number-mode t)
 
 ;;标题栏显示 %f 缓冲区完整路径 %p 页面百分数 %l 行号
 (setq frame-title-format "%f")
@@ -153,10 +153,7 @@
 
 
 
-
-
   
-
 
 
 ;; menu设置为12 lines
