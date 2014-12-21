@@ -1,4 +1,3 @@
-
 ;;  emacs packet configure
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -97,4 +96,17 @@ ac-source-filename))
 (load-file (concat Relative-Path "sicp-scheme.el"));
 ;;;color -theme
 (load-file (concat Relative-Path "wangyinelisp/koma-theme.el"));;;非常nice的theme仿vim的我只能说nice！
+
+(require 'xcscope)
+
+
+
+
+
+
+
+
+
+
+
 
