@@ -98,3 +98,21 @@ ac-source-filename))
 ;;;color -theme
 (load-file (concat Relative-Path "wangyinelisp/koma-theme.el"));;;非常nice的theme仿vim的我只能说nice！
 
+;; 星际译王， 加载el，若使用需要安装 stardict
+        (require 'stardict)
+        (load-file (concat Relative-Path "stardict.el"));
+
+
+;; cscope
+(require 'xcscope)
+
+
+
+
+
+
+
+
+
+
+

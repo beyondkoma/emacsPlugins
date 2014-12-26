@@ -1,8 +1,60 @@
 * DONE templatecdr 配置 
   CLOSED: [2014-12-08 一 01:14]
-* TODO dbss 数据流搞通
+* DONE dbss 数据流搞通
+  CLOSED: [2014-12-16 二 21:07]
 
-* TODO templatecdr 代码阅读，争取搞定入库问题
-* TODO 发票粘帖.
-* TODO 公司网站内容填写整合，以及学习使用。
+* DONE templatecdr 代码阅读，争取搞定入库问题
+  CLOSED: [2014-12-16 二 21:07]
+* DONE 发票粘帖.
+  CLOSED: [2014-12-08 一 05:01]
+* DONE 公司网站内容填写整合，以及学习使用。
+  CLOSED: [2014-12-09 二 04:08]
 
+* DONE templatecdr 文档书写和整理，下午开始。
+  CLOSED: [2014-12-16 二 21:07]
+
+* TODO 熟悉数据库部分代码，争取入库成功。
+
+
+番茄钟，是指把任务分解成半小时左右，集中精力工作25分钟后休息5分钟，如此视作种一个“番茄”。哪怕工作没有完成，也要定时休息，然后再进入下一个番茄时间。
+收获4个“番茄”后，能休息15至30分钟。
+一天10个
+
+
+
+* DONE 复习一下表结构问题，理清思路，
+  CLOSED: [2014-12-17 三 21:30]
+* DONE 表的初始化部分
+  CLOSED: [2014-12-17 三 22:04]
+* DONE 继续研究表的初始化部分
+  CLOSED: [2014-12-17 三 23:01]
+* DONE 虚拟机网络问题，
+  CLOSED: [2014-12-18 四 02:34]
+* DONE 数据库表初始化
+  CLOSED: [2014-12-18 四 05:41]
+
+
+* DONE 
+  CLOSED: [2014-12-18 四 22:10] 番茄
+* DONE 
+  CLOSED: [2014-12-18 四 23:03]
+
+* DONE 
+  CLOSED: [2014-12-19 五 01:49]
+* DONE 
+  CLOSED: [2014-12-19 五 02:48]
+
+* DONE templatecdr getParm 函数。
+  CLOSED: [2014-12-23 二 22:23]
+
+
+
+* DONE Tomato plan (dbss共享内存问题）
+  CLOSED: [2014-12-24 三 02:12]
+* DONE 
+  CLOSED: [2014-12-24 三 02:34]
+
+* TODO elisp
+* TODO emacs sdcv 配置
+* TODO shell 十三问
+* TODO dbss 程序

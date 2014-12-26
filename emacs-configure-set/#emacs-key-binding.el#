@@ -28,6 +28,7 @@
 (global-set-key ( kbd "C-x C-b ")' ibuffer)
 
 
+
 ;; tabbar key-binding
 (global-set-key (kbd "C-9") 'tabbar-backward-group)
 (global-set-key (kbd "C-0") 'tabbar-forward-group)
@@ -45,5 +46,6 @@
 ;; 如果没有选择一个区域(region), 则注释掉/反注释当前的行
 (global-set-key "\M-;" 'qiang-comment-dwim-line)
 
-;; stardict 加载
-        (global-set-key (kbd "C-c d") 'view-stardict-in-buffer)
+
+
+
