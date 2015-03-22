@@ -2,11 +2,10 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)
-  (add-to-list 'package-archives '("melpa" . "http://elpa.gnu.org/ ") t)
-          (add-to-list 'package-archives '("melpa" . "http://tromey.com/elpa/ ") t)
-	  (add-to-list 'package-archives '("melpa" . "http://marmalade-repo.org/") t)
-	  (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/ ") t)
+  	         (add-to-list 'package-archives        '("elpy" . "http://jorgenschaefer.github.io/packages/"))
   )
+
+
 
 ;; yasnippet配置
 (add-to-list 'load-path  (concat  Relative-Path  "yasnippet-master")) ;
@@ -104,8 +103,27 @@ ac-source-filename))
 
 
 ;; cscope
-
 (require 'xcscope)
+
+;; add python for emacs
+(load-file (concat Relative-Path "emacs-for-python/epy-init.el"))
+(add-to-list 'load-path "path/to/emacs-for-python/") ;; tell where to load the various files
+(require 'epy-setup)      ;; It will setup other loads, it is required!
+(require 'epy-python)     ;; If you want the python facilities [optional]
+(require 'epy-completion) ;; If you want the autocompletion settings [optional]
+(require 'epy-editing)    ;; For configurations related to editing [optional]
+(require 'epy-bindings)   ;; For my suggested keybindings [optional]
+(require 'epy-nose)       ;; For nose integration
+(epy-setup-ipython)
+;; (epy-django-snippets)
+(epy-setup-checker "pyflakes %f")
+(global-hl-line-mode t)
+(set-face-background 'hl-line "black") ;; change with the color that you like
+                                       ;; for a list of colors: http://raebear.net/comp/emacscolors.html
+(require 'highlight-indentation)
+(add-hook 'python-mode-hook 'highlight-indentation)
+
+
 
 
 
