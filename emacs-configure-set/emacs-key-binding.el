@@ -2,6 +2,7 @@
    (global-set-key [f1] ' hippie-expand)
 ;; C-t 设置标记 
 (global-set-key (kbd "C-t") 'set-mark-command)	
+(global-set-key (kbd "C-c g") 'goto-line)	
 
 ;;---------- redo
 (global-set-key ( kbd "C-.") 'redo)	

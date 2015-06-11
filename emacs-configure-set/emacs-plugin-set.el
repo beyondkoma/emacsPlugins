@@ -103,7 +103,7 @@ ac-source-filename))
 
 
 ;; cscope
-(require 'xcscope)
+;;(require 'xcscope)			
 
 ;; add python for emacs
 (load-file (concat Relative-Path "emacs-for-python/epy-init.el"))
