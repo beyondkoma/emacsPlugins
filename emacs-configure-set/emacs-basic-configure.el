@@ -32,7 +32,7 @@
 (setq default-fill-column 90)
 
 ;缺省模式 org-mode
- (setq default-major-mode 'text-mode)
+ ;; (setq default-major-mode 'text-mode)
 
 ;;设置删除纪录
 (setq kill-ring-max 200)
@@ -149,7 +149,6 @@
 ;;========================================
 
 ;;;emacs  auto-complete
-
 
 
 

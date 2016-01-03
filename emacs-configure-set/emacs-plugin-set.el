@@ -1,11 +1,16 @@
 ;;  emacs packet configure
-(when (>= emacs-major-version 24)
   (require 'package)
-  (package-initialize)
-  	         (add-to-list 'package-archives        '("elpy" . "http://jorgenschaefer.github.io/packages/"))
-  )
 
 
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+
+(add-to-list 'package-archives
+          '("popkit" . "http://elpa.popkit.org/packages/"))
+
+
+(package-initialize)
 
 ;; yasnippet配置
 (add-to-list 'load-path  (concat  Relative-Path  "yasnippet-master")) ;
@@ -107,7 +112,7 @@ ac-source-filename))
 
 ;; add python for emacs
 (load-file (concat Relative-Path "emacs-for-python/epy-init.el"))
-(add-to-list 'load-path "path/to/emacs-for-python/") ;; tell where to load the various files
+(add-to-list 'load-path (concat Relative-Path "emacs-for-python/"))
 (require 'epy-setup)      ;; It will setup other loads, it is required!
 (require 'epy-python)     ;; If you want the python facilities [optional]
 (require 'epy-completion) ;; If you want the autocompletion settings [optional]
@@ -122,17 +127,5 @@ ac-source-filename))
                                        ;; for a list of colors: http://raebear.net/comp/emacscolors.html
 (require 'highlight-indentation)
 (add-hook 'python-mode-hook 'highlight-indentation)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
