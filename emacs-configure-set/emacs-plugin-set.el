@@ -78,11 +78,8 @@
 (epy-setup-ipython)
 ;; (epy-django-snippets)
 (epy-setup-checker "pyflakes %f")
-(global-hl-line-mode t)
-(set-face-background 'hl-line "black") ;; change with the color that you like
-                                       ;; for a list of colors: http://raebear.net/comp/emacscolors.html
-(require 'highlight-indentation)
-(add-hook 'python-mode-hook 'highlight-indentation)
+
+
 
 
 

@@ -8,6 +8,9 @@
 
 (require 'smart-operator)
 
+
+
+
 ;; Open Next Line
 (require 'open-next-line)
 
@@ -165,18 +168,19 @@ original" (interactive)
 (delete-selection-mode 1)
 
 ;; highlight current line
-;;(global-hl-line-mode 1)
-;;(set-face-background 'hl-line "seashell2") ;; Nice color
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "black") ;; Nice color
+;; for a list of colors: http://raebear.net/comp/emacscolors.html
 
 ; highlight brackets
 (show-paren-mode t)
 
 ;; Highlight indentation
-;;(require 'highlight-indentation)
-;;(add-hook 'python-mode-hook 'highlight-indentation)
+(require 'highlight-indentation)
+(add-hook 'python-mode-hook 'highlight-indentation)
 
 ;; Line numbering
-;;(setq linum-format "%4d")
-;;(global-linum-mode 1)
+(setq linum-format "%4d")
+(global-linum-mode 1)
 
 (provide 'epy-editing)

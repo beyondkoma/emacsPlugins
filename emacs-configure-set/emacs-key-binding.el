@@ -2,7 +2,7 @@
    (global-set-key [f1] ' hippie-expand)
 ;; C-t 设置标记 
 (global-set-key (kbd "C-t") 'set-mark-command)	
-;; (global-set-key (kbd "C-c g") 'goto-line)	
+(global-set-key (kbd "C-c j") 'goto-line)	
 
 ;;---------- redo
 (global-set-key ( kbd "C-.") 'redo)	
@@ -21,9 +21,7 @@
  ;; (global-set-key [f2] (quote shell)) ;
  (global-set-key [f2] 'shell)
 
- ;;显示/隐藏菜单栏 ;; M-x menu-bar-open
-(global-set-key  [(f10)]'menu-bar-mode) 
-(global-set-key  [(f11)]'tool-bar-mode) 
+
 
 ;; ibuffer
 (global-set-key ( kbd "C-x C-b ")' ibuffer)
@@ -48,3 +46,5 @@
 
 ;; stardict 加载
         ;; (global-set-key (kbd "C-c d") 'view-stardict-in-buffer)
+
+

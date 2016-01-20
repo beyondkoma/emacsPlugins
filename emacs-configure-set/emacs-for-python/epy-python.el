@@ -165,4 +165,16 @@ The CMDLINE should be something like:
 (add-hook 'ein:notebook-python-mode-hook 
 	  (lambda ()
 	    (define-key python-mode-map "\C-m" 'newline)))
+
+;; python ipdb
+
+(defun python-add-breakpoint ()
+    "Add a break point"
+    (interactive)
+    (newline-and-indent)
+    (insert "import ipdb; ipdb.set_trace()")
+    (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
+
+(define-key python-mode-map (kbd "C-c b") 'python-add-breakpoint)
+
 (provide 'epy-python)
