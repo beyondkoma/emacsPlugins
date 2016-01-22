@@ -14,12 +14,6 @@
 
 
 
-
-
-
-
-
-
 (add-to-list 'load-path (concat  Relative-Path "wangyinelisp/"))
 (load-file (concat  Relative-Path "wangyinelisp/setnu.el"))
 (add-hook 'text-mode-hook 'turn-on-setnu-mode)
@@ -58,9 +52,8 @@
 (load-file (concat Relative-Path "wangyinelisp/koma-theme.el"));;;非常nice的theme仿vim的我只能说nice！
 
 
-;; 星际译王， 加载el，若使用需要安装 stardict
-(require 'stardict)
-(load-file (concat Relative-Path "stardict.el"));
+
+
 
 
 ;; cscope
@@ -82,7 +75,6 @@
 
 
 
-
 ;;;web -mode 
 (load-file (concat Relative-Path "web-mode.el"));
 
@@ -96,3 +88,21 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
+;;; window number control
+(require 'switch-window)
+
+;; ‘C-c left’    ‘C-c right’
+(when (fboundp 'winner-mode)
+      (winner-mode 1))
+
+
+
+
+;;; emacs-async
+(add-to-list 'load-path (concat Relative-Path "emacs-async/"))
+
+;;emacs helm
+(add-to-list 'load-path (concat Relative-Path "helm/"))
+(require 'helm-config)
+(helm-mode 1)

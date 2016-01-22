@@ -8,7 +8,7 @@
 (global-set-key ( kbd "C-.") 'redo)	
 
  ;;关闭当前缓冲区 Alt+4  (init-key  C-x 0)
-(global-set-key (kbd "M-4") 'delete-window)	
+(global-set-key (kbd "M-0") 'delete-window)	
 ;;关闭其它缓冲区 Alt+1  (init-key C-x 1)
 (global-set-key (kbd "M-1") 'delete-other-windows)	
 ;;水平分割缓冲区 Alt+2  (init-key C-x 
@@ -16,7 +16,10 @@
 ;;垂直分割缓冲区 Alt+3  (init-key C-x 3)
 (global-set-key (kbd "M-3") 'split-window-horizontally)	
 ;;切换到其它缓冲区 Alt+0 (init-key C-x o )
-(global-set-key (kbd "M-0") 'other-window)	
+;; (global-set-key (kbd "M-0") 'other-window)	
+
+;;;window key-bound
+(global-set-key (kbd "C-x o") 'switch-window)
 	  
  ;; (global-set-key [f2] (quote shell)) ;
  (global-set-key [f2] 'shell)
@@ -43,8 +46,8 @@
 ;; 注释/反注释一行或是一个区域的代码
 ;; 如果没有选择一个区域(region), 则注释掉/反注释当前的行
 (global-set-key "\M-;" 'qiang-comment-dwim-line)
+;
 
-;; stardict 加载
-        ;; (global-set-key (kbd "C-c d") 'view-stardict-in-buffer)
+
 
 
