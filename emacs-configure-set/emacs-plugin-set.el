@@ -104,5 +104,6 @@
 
 ;;emacs helm
 (add-to-list 'load-path (concat Relative-Path "helm/"))
-(require 'helm-config)
+(require 'helm-config);
+
 (helm-mode 1)

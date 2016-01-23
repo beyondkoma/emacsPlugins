@@ -3,7 +3,7 @@
 ;; (global-set-key (kbd "s-c") 'clipboard-kill-ring-save) ;;copy
 ;; (global-set-key (kbd "s-v") 'clipboard-yank) ;;paste
 
-;; calc-mode more comfortable
+;; ;; calc-mode more comfortable
 ;; (global-set-key (kbd "M-c") 'calc-dispatch)
 
 ; Ctrl+tab mapped to Alt+tab
