@@ -14,12 +14,12 @@
 
 
 
-(add-to-list 'load-path (concat  Relative-Path "wangyinelisp/"))
-(load-file (concat  Relative-Path "wangyinelisp/setnu.el"))
+(add-to-list 'load-path (concat  Relative-Path "util-plugin/"))
+(load-file (concat  Relative-Path "util-plugin/setnu.el"))
 (add-hook 'text-mode-hook 'turn-on-setnu-mode)
 
 ;;;;; tabbar mode
-(load-file (concat  Relative-Path "wangyinelisp/tabbar.el"))
+(load-file (concat  Relative-Path "util-plugin/tabbar.el"))
 (require 'tabbar)
 (tabbar-mode)
 (put 'dired-find-alternate-file 'disabled nil)
@@ -42,14 +42,14 @@
 
 ;;;;;Scheme半结构化编程模式
 ;;;;;M-x paredit-mode 就可以自动载入这个模式。具体的操作方式可以看它的说明（按 C-h m 查看“模式帮助”）
-(load-file  (concat Relative-Path "wangyinelisp/paredit.el"))
+(load-file  (concat Relative-Path "util-plugin/paredit.el"))
 (autoload 'paredit-mode "paredit"
   "Minor mode for pseudo-structurally editing Lisp code."
   t)
 
 (load-file (concat Relative-Path "sicp-scheme.el"));
 ;;;color -theme
-(load-file (concat Relative-Path "wangyinelisp/koma-theme.el"));;;非常nice的theme仿vim的我只能说nice！
+(load-file (concat Relative-Path "util-plugin/koma-theme.el"));;;非常nice的theme仿vim的我只能说nice！
 
 
 
