@@ -1,5 +1,5 @@
 ;; 自动补全
-   (global-set-key [f1] ' hippie-expand)
+(global-set-key [f1] ' hippie-expand)
 ;; C-t 设置标记 
 (global-set-key (kbd "C-t") 'set-mark-command)	
 (global-set-key (kbd "C-c j") 'goto-line)	
@@ -49,8 +49,23 @@
 ;
 
 ;; helm config
-
 (global-set-key (kbd "M-x")                          'undefined)
 (global-set-key (kbd "M-x")                          'helm-M-x)
 (global-set-key (kbd "C-x r b")                      'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f")                      'helm-find-files)
+
+;;  windows move
+(global-set-key (kbd "C-<up>") 'windmove-up)
+(global-set-key (kbd "C-<down>") 'windmove-down)
+(global-set-key (kbd "C-<left>") 'windmove-left)
+(global-set-key (kbd "C-<right>") 'windmove-right)
+
+
+;;;avy key-bindings
+
+(global-set-key (kbd "C-'") 'avy-goto-char)
+(global-set-key (kbd "C-<return>") 'avy-goto-char-2)
+(global-set-key (kbd "M-g g") 'avy-goto-line)
+(global-set-key (kbd "M-g w") 'avy-goto-word-1)
+(global-set-key (kbd "M-g e") 'avy-goto-word-0)
+

@@ -107,3 +107,8 @@
 (require 'helm-config);
 
 (helm-mode 1)
+
+;; 
+(add-to-list 'load-path (concat Relative-Path "avy/"))
+(require  'avy)
+(avy-setup-default)
