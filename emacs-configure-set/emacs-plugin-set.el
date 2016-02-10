@@ -15,8 +15,11 @@
 
 
 (add-to-list 'load-path (concat  Relative-Path "util-plugin/"))
-(load-file (concat  Relative-Path "util-plugin/setnu.el"))
-(add-hook 'text-mode-hook 'turn-on-setnu-mode)
+
+;; linum.el
+(load-file (concat  Relative-Path "util-plugin/linum.el"))
+(require 'linum)
+(setq linum-format "%4d \u2502")
 
 ;;;;; tabbar mode
 (load-file (concat  Relative-Path "util-plugin/tabbar.el"))
