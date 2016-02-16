@@ -2,12 +2,9 @@
   (require 'package)
 
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
-(add-to-list 'package-archives
-          '("popkit" . "http://elpa.popkit.org/packages/"))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+			 ("popkit" . "http://elpa.popkit.org/packages/")))
 
 
 (package-initialize)
@@ -15,8 +12,11 @@
 
 
 (add-to-list 'load-path (concat  Relative-Path "util-plugin/"))
-(load-file (concat  Relative-Path "util-plugin/setnu.el"))
-(add-hook 'text-mode-hook 'turn-on-setnu-mode)
+
+;; linum.el
+(load-file (concat  Relative-Path "util-plugin/linum.el"))
+(require 'linum)
+(setq linum-format "%4d \u2502")
 
 ;;;;; tabbar mode
 (load-file (concat  Relative-Path "util-plugin/tabbar.el"))
@@ -106,9 +106,56 @@
 (add-to-list 'load-path (concat Relative-Path "helm/"))
 (require 'helm-config);
 
+
+(when (executable-find "curl")
+  (setq helm-google-suggest-use-curl-p t))
+
+(setq helm-split-window-in-side-p           t ; open helm buffer inside current window, not occupy whole other window
+      helm-move-to-line-cycle-in-source     t ; move to end or beginning of source when reaching top or bottom of source.
+      helm-ff-search-library-in-sexp        t ; search for library in `require' and `declare-function' sexp.
+      helm-scroll-amount                    8 ; scroll 8 lines other window using M-<next>/M-<prior>
+      helm-ff-file-name-history-use-recentf t)
+
+(setq helm-autoresize-mode t)
+(setq helm-M-x-fuzzy-match t) ;; optional fuzzy matching for helm-M-x
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)  ;;; fuzzy matching for fuzzy match
+
+(semantic-mode 1)
+(setq helm-semantic-fuzzy-match t
+      helm-imenu-fuzzy-match    t)
+
+(when (executable-find "ack-grep")
+  (setq helm-grep-default-command "ack-grep -Hn --no-group --no-color %e %p %f"
+        helm-grep-default-recurse-command "ack-grep -H --no-group --no-color %e %p %f"))
+
+
+(setq helm-apropos-fuzzy-match t)
+
 (helm-mode 1)
 
-;; 
+
+
+;; golden-ratio.el  rezise windows automatic
+(load-file (concat Relative-Path "util-plugin/golden-ratio.el"));
+
+(require 'golden-ratio)
+(golden-ratio-mode 1)
+(setq golden-ratio-auto-scale t)
+
+(defun pl/helm-alive-p ()
+  (if (boundp 'helm-alive-p)
+      (symbol-value 'helm-alive-p)))
+
+(add-to-list 'golden-ratio-inhibit-functions 'pl/helm-alive-p)
+
+
+;; avy
 (add-to-list 'load-path (concat Relative-Path "avy/"))
 (require  'avy)
 (avy-setup-default)
+
+
+
+
+
