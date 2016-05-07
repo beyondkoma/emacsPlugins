@@ -1,15 +1,16 @@
 ;;  emacs packet configure
-  (require 'package)
-
-
-
+(require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 			 ("popkit" . "http://elpa.popkit.org/packages/")))
 
+;; elpy support
+(add-to-list 'package-archives
+             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 (package-initialize)
 
-
+;; elpy support
+(elpy-enable)
 
 (add-to-list 'load-path (concat  Relative-Path "util-plugin/"))
 
@@ -58,20 +59,6 @@
 
 ;; cscope
 ;;(require 'xcscope)			
-
-;; add python for emacs
-(load-file (concat Relative-Path "emacs-for-python/epy-init.el"))
-(add-to-list 'load-path (concat Relative-Path "emacs-for-python/"))
-(require 'epy-setup)      ;; It will setup other loads, it is required!
-(require 'epy-python)     ;; If you want the python facilities [optional]
-(require 'epy-completion) ;; If you want the autocompletion settings [optional]
-(require 'epy-editing)    ;; For configurations related to editing [optional]
-(require 'epy-bindings)   ;; For my suggested keybindings [optional]
-(require 'epy-nose)       ;; For nose integration
-(epy-setup-ipython)
-;; (epy-django-snippets)
-(epy-setup-checker "pyflakes %f")
-
 
 
 
