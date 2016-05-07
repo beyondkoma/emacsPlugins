@@ -63,6 +63,9 @@
 (global-set-key (kbd "C-c h g") 'helm-google-suggest)
 
 
+
+
+
 ;;  windows move
 (global-set-key (kbd "C-<up>") 'windmove-up)
 (global-set-key (kbd "C-<down>") 'windmove-down)
@@ -77,4 +80,5 @@
 (global-set-key (kbd "M-g g") 'avy-goto-line)
 (global-set-key (kbd "M-g w") 'avy-goto-word-1)
 (global-set-key (kbd "M-g e") 'avy-goto-word-0)
+
 
