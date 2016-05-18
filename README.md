@@ -1,2 +1,2 @@
 # emacsPlugins
-my emacsPlugins，use elpy support python，helm and so on。
+个人的emacsPlugins 插件集合。
