@@ -12,6 +12,14 @@
 ;; elpy support
 (elpy-enable)
 
+;; ipdb adjust
+(defun python-add-breakpoint ()
+    "Add a break point"
+    (interactive)
+    (newline-and-indent)
+    (insert "import ipdb; ipdb.set_trace()")
+    (highlight-lines-matching-regexp "^[ ]*import ipdb; ipdb.set_trace()"))
+
 (add-to-list 'load-path (concat  Relative-Path "util-plugin/"))
 
 ;; linum.el
