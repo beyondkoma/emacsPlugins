@@ -153,5 +153,7 @@
 
 
 
-
-
+;; erlang distel
+(add-to-list 'load-path (concat Relative-Path "erl-share/distel/elisp"))
+(require 'distel)
+(distel-setup)
