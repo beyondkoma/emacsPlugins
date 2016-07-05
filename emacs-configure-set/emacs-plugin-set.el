@@ -97,7 +97,8 @@
 ;;; emacs-async
 (add-to-list 'load-path (concat Relative-Path "emacs-async/"))
 
-;;emacs helm
+;; emacs helm
+
 (add-to-list 'load-path (concat Relative-Path "helm/"))
 (require 'helm-config);
 
