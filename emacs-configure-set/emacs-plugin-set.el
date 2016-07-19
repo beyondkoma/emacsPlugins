@@ -99,9 +99,8 @@
 
 ;; emacs helm
 
-(add-to-list 'load-path (concat Relative-Path "helm/"))
-(require 'helm-config);
 
+(require 'helm-config);
 
 (when (executable-find "curl")
   (setq helm-google-suggest-use-curl-p t))
