@@ -20,9 +20,14 @@
 
 ;;;window key-bound
 (global-set-key (kbd "C-x o") 'switch-window)
+
+
+;; winner mode
+(global-set-key (kbd "C-c <") 'winner-undo)
+(global-set-key (kbd "C-c >") 'winner-redo)
 	  
  ;; (global-set-key [f2] (quote shell)) ;
- (global-set-key [f2] 'shell)
+(global-set-key [f2] 'shell)
 
 
 
