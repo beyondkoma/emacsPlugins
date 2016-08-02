@@ -26,12 +26,17 @@
 (load-file (concat  Relative-Path "util-plugin/linum.el"))
 (require 'linum)
 (setq linum-format "%4d \u2502")
+(global-linum-mode 1)
 
 ;;;;; tabbar mode
 (load-file (concat  Relative-Path "util-plugin/tabbar.el"))
 (require 'tabbar)
 (tabbar-mode)
 (put 'dired-find-alternate-file 'disabled nil)
+
+
+;; require ibuffer
+(require 'ibuffer)
 
 
 ;;;;;配置org-mode

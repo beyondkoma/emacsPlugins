@@ -160,18 +160,6 @@
           (setq ac-sources '(ac-source-semantic ac-source-yasnippet))
   ))
 
-;;;;go to char 命令 ctrl-x a
-(define-key global-map (kbd "C-x a") 'wy-go-to-char)
-(defun wy-go-to-char (n char)
-  "Move forward to Nth occurence of CHAR.
-Typing `wy-go-to-char-key' again will move forwad to the next Nth
-occurence of CHAR."
-  (interactive "p\ncGo to char: ")
-  (search-forward (string char) nil nil n)
-  (while (char-equal (read-char)
-		     char)
-    (search-forward (string char) nil nil n))
-  (setq unread-command-events (list last-input-event)))
 
 
 ;;;;;; redo function
@@ -312,8 +300,7 @@ A numeric argument serves as a repeat count."
   (setq last-buffer-undo-list buffer-undo-list))
 
 
-;; require ibuffer
-(require 'ibuffer)
+
 
 
  ;;;用%来实现括号之间的扩展
