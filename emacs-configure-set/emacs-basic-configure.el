@@ -23,7 +23,13 @@
 
 ;; 关闭临时文件生成
 
-(setq-default make-backup-files nil)
+(setq make-backup-files nil)
+; all backups goto ~/.backups instead in the current directory
+(setq backup-directory-alist (quote (("." . "~/.backups"))))
+
+;; 禁止自动保存
+(setq auto-save-default nil) ;;
+
 ;;========================================
 ;; buffer echo
 ;;========================================
