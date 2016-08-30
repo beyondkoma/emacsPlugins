@@ -164,13 +164,11 @@
 (helm-projectile-on)
 (setq projectile-switch-project-action 'helm-projectile)
 
-;; erlang distel
-;; (add-to-list 'load-path (concat Relative-Path "erl-share/distel/elisp"))
-;; (require 'distel)
-;; (distel-setup)
+
 
 ;; erlang mode
-
 (require 'erlang-start)
+
+
 
 
