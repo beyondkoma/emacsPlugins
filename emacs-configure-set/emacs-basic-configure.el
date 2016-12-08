@@ -19,7 +19,14 @@
 (setq default-directory  "~/")   
 
 ;;让emacs可以直接打开和显示图片
-(auto-image-file-mode)		 
+(auto-image-file-mode)
+
+;; default indent set
+(setq-default indent-tabs-mode nil)
+(setq default-tab-width 4)
+(setq tab-width 4)
+(setq tab-stop-list '(4 8 12 16 20 24 28 32 36 40
+      44 48 52 56 60 64 68 72 76 80 84 88 92 96)) 
 
 ;; 关闭临时文件生成
 
