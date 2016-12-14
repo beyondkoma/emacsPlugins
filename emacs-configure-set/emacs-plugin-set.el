@@ -5,7 +5,8 @@
 
 ;; elpy support
 (add-to-list 'package-archives
-             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+             '("elpy" . "http://jorgenschaefer.github.io/packages/")
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
 
 (package-initialize)
 
